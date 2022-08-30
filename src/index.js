@@ -1,40 +1,35 @@
-import React, { createContext } from 'react';
-import ReactDOM from 'react-dom/client';
+import React, {createContext} from 'react';
+import ReactDOM from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { initializeApp } from 'firebase/app';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
-import 'firebase/compat/auth';
+import firebase from "firebase";
+import 'firebase/firestore'
+import 'firebase/auth'
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAi59TPS3e3vnNb3rQkkWGnXS-yRUXn_xQ",
-  authDomain: "real-time-chat-1f29a.firebaseapp.com",
-  projectId: "real-time-chat-1f29a",
-  storageBucket: "real-time-chat-1f29a.appspot.com",
-  messagingSenderId: "646015624448",
-  appId: "1:646015624448:web:8cc361268fa581c6a23fe5",
-  measurementId: "G-M2XD0CJXLL"
-};
+firebase.initializeApp({
+    apiKey: "AIzaSyD0rg6kxaSzhYBPrFKZyoXre3oWyna2aw0",
+    authDomain: "chat-react-b1420.firebaseapp.com",
+    projectId: "chat-react-b1420",
+    storageBucket: "chat-react-b1420.appspot.com",
+    messagingSenderId: "646176365546",
+    appId: "1:646176365546:web:ed394bb1b7e64ea03c3093",
+    measurementId: "G-B81QJW05HL"
+    }
+);
 
 export const Context = createContext(null)
 
-const firebaseApp = firebase.initializeApp(firebaseConfig)
 const auth = firebase.auth()
-const firestore = firebaseApp.firestore()
- 
-initializeApp(firebaseConfig);
+const firestore = firebase.firestore()
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <Context.Provider value={{
-    firebase,
-    auth,
-    firestore
-  }}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Context.Provider>
+
+ReactDOM.render(
+    <Context.Provider value={{
+        firebase,
+        auth,
+        firestore
+    }}>
+        <App />
+    </Context.Provider>,
+  document.getElementById('root')
 );
-reportWebVitals();
+
