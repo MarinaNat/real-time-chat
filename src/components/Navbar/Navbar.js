@@ -13,9 +13,6 @@ const Navbar = () => {
 
     
     return (
-        // <div>
-        //     Navbar
-        // </div>
         <AppBar color={"secondary"} position="static">
 
             <Toolbar variant="dense">

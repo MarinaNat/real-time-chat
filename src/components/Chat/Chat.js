@@ -31,9 +31,6 @@ const Chat = () => {
     }
 
     return (
-        // <div>
-        //    sendMessage 
-        // </div>
 
         <Container>
             <Grid container

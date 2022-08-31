@@ -17,9 +17,6 @@ const Login = () => {
     }
 
     return (
-        // <div>
-        //    Login 
-        // </div>
         <Container>
             <Grid container
                   style={{height: window.innerHeight - 50}}

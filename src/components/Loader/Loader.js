@@ -3,9 +3,6 @@ import { Container, Grid} from "@mui/material";
 
 const Loader = () => {
     return (
-        // <div>
-        //      Loader
-        // </div>
         <Container>
             <Grid container
                   style={{height: window.innerHeight - 50}}

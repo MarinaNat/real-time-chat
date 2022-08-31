@@ -1,4 +1,4 @@
-# react-firebase-chat
+# real-time-chat
 Чат в реальном времени. На версии React 18. react-router-dom - 6.
 В планах: 
 Перенести стили в соответствующие файлы
