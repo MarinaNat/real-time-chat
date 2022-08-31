@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import {Button, Grid} from "@material-ui/core";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import {Button, Grid} from "@mui/material";
 import {NavLink} from "react-router-dom";
 import {LOGIN_ROUTE} from "../../utils/consts";
 import {Context} from "../../index";
@@ -11,7 +11,11 @@ const Navbar = () => {
     const {auth} = useContext(Context)
     const [user] = useAuthState(auth)
 
+    
     return (
+        // <div>
+        //     Navbar
+        // </div>
         <AppBar color={"secondary"} position="static">
 
             <Toolbar variant="dense">

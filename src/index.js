@@ -1,5 +1,5 @@
-import React, {createContext} from 'react';
-import ReactDOM from 'react-dom';
+import React, { createContext } from 'react';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import firebase from "firebase";
 import 'firebase/firestore'
@@ -13,7 +13,7 @@ firebase.initializeApp({
     messagingSenderId: "646176365546",
     appId: "1:646176365546:web:ed394bb1b7e64ea03c3093",
     measurementId: "G-B81QJW05HL"
-    }
+}
 );
 
 export const Context = createContext(null)
@@ -21,8 +21,9 @@ export const Context = createContext(null)
 const auth = firebase.auth()
 const firestore = firebase.firestore()
 
+const root = createRoot(document.getElementById('root'));
 
-ReactDOM.render(
+root.render(
     <Context.Provider value={{
         firebase,
         auth,
@@ -30,6 +31,16 @@ ReactDOM.render(
     }}>
         <App />
     </Context.Provider>,
-  document.getElementById('root')
 );
+
+// ReactDOM.render(
+//     <Context.Provider value={{
+//         firebase,
+//         auth,
+//         firestore
+//     }}>
+//         <App />
+//     </Context.Provider>,
+//   document.getElementById('root')
+// );
 

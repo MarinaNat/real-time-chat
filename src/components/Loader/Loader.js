@@ -1,8 +1,11 @@
 import React from 'react';
-import { Container, Grid} from "@material-ui/core";
+import { Container, Grid} from "@mui/material";
 
 const Loader = () => {
     return (
+        // <div>
+        //      Loader
+        // </div>
         <Container>
             <Grid container
                   style={{height: window.innerHeight - 50}}

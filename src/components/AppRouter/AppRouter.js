@@ -1,32 +1,41 @@
-import React, {useContext} from 'react';
-import {Route, Switch, Redirect} from 'react-router-dom'
+import React, {useContext,  useEffect} from 'react';
+import {Route, Routes, useNavigate} from 'react-router-dom'
 import {privateRoutes, publicRoutes} from "../../routes";
 import {CHAT_ROUTE, LOGIN_ROUTE} from "../../utils/consts";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {Context} from "../../index";
+import Chat from '../Chat/Chat';
+import Login from '../Login/Login';
 
 const AppRouter = () => {
 
+    const navigate = useNavigate();
     const {auth} = useContext(Context)
     const [user] = useAuthState(auth)
 
+    useEffect(() => {
+        if(user) {
+            navigate("/chat");
+        } else {
+            navigate("/login")
+        }
+      }, [user, navigate]);
+
     return user ?
         (
-            <Switch>
-                {privateRoutes.map(({path, Component}) => 
-                <Route key={path} path={path} component={Component} exact={true} />
+            <Routes>
+                {privateRoutes.map(({path, element}) => 
+                <Route key={CHAT_ROUTE} path={CHAT_ROUTE} element={<Chat />}/>
                 )}
-                <Redirect to={CHAT_ROUTE}/>
-            </Switch>
+            </Routes>
         )
         :
         (
-            <Switch>
-                {publicRoutes.map(({path, Component}) => 
-                <Route key={path} path={path} component={Component} exact={true} />
+            <Routes>
+                {publicRoutes.map(({path, element}) => 
+                <Route key={LOGIN_ROUTE} path={LOGIN_ROUTE} element={<Login />}/>
                 )}
-                <Redirect to={LOGIN_ROUTE}/>
-            </Switch>
+            </Routes>
         )
 };
 

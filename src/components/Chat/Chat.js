@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Context } from "../../index";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Avatar, Button, Container, Grid } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
+import { Avatar, Button, Container, Grid, Paper } from "@mui/material";
+import TextField from "@mui/material/TextField";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import Loader from "../Loader/Loader";
 import firebase from "firebase";
@@ -27,18 +27,21 @@ const Chat = () => {
     }
 
     if (loading) {
-        return <Loader/>
+        return <Loader />
     }
 
     return (
-       
+        // <div>
+        //    sendMessage 
+        // </div>
+
         <Container>
             <Grid container
-                  justify={"center"}
-                  style={{height: window.innerHeight - 50, marginTop: 20}}>
-                <div style={{width: '80%', height: '60vh', border: '1px solid pink', overflowY: 'auto'}}>
+                justify={"center"}
+                style={{ height: window.innerHeight - 50, marginTop: 20 }}>
+                <Paper elevation={3} style={{ width: '80%', height: '60vh', border: '1px solid pink', overflowY: 'auto' }}>
                     {messages.map(message =>
-                        <div key={message.createdAt} style={{
+                        <Paper elevation={3} key={message.createdAt} style={{
                             margin: 10,
                             border: user.uid === message.uid ? '2px solid green' : '2px dashed red',
                             marginLeft: user.uid === message.uid ? 'auto' : '10px',
@@ -46,29 +49,29 @@ const Chat = () => {
                             padding: 5,
                         }}>
                             <Grid container>
-                                <Avatar src={message.photoURL}/>
+                                <Avatar src={message.photoURL} />
                                 <div>{message.displayName}</div>
-        
+
                             </Grid>
                             <div>{message.text}</div>
                             {/* <div>{message.createdAt}</div> */}
-                        </div>
+                        </Paper>
                     )}
-                </div>
+                </Paper>
                 <Grid
                     container
                     direction={"column"}
                     alignItems={"flex-end"}
-                    style={{width: '80%'}}
+                    style={{ width: '80%' }}
                 >
                     <TextField
                         fullWidth
-                        rowsMax={2}
+                        rowsmax={2}
                         variant={"outlined"}
                         value={value}
                         onChange={e => setValue(e.target.value)}
                     />
-                    <Button onClick={sendMessage} variant={"outlined"}>Отправить</Button>
+                    <Button onClick={sendMessage} variant={"contained"}>Отправить</Button>
                 </Grid>
             </Grid>
         </Container>
