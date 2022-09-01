@@ -32,15 +32,3 @@ root.render(
         <App />
     </Context.Provider>,
 );
-
-// ReactDOM.render(
-//     <Context.Provider value={{
-//         firebase,
-//         auth,
-//         firestore
-//     }}>
-//         <App />
-//     </Context.Provider>,
-//   document.getElementById('root')
-// );
-

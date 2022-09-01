@@ -6,13 +6,13 @@ const Loader = () => {
         <Container>
             <Grid container
                   style={{height: window.innerHeight - 50}}
-                  alignItems={"center"}
-                  justify={"center"}
+                  alignItems="center"
+                  justify="center"
             >
                 <Grid
                       container
-                      alignItems={"center"}
-                      direction={"column"}
+                      alignItems="center"
+                      direction="column"
                 >
                     <div className="lds-hourglass"></div>
                 </Grid>

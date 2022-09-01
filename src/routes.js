@@ -5,13 +5,13 @@ import Chat from "./components/Chat/Chat";
 export const publicRoutes = [
     {
         path: LOGIN_ROUTE,
-        Component: Login
+        element: <Login />
     }
 ]
 
 export const privateRoutes = [
     {
         path: CHAT_ROUTE,
-        Component: Chat
+        element: <Chat />
     }
 ]

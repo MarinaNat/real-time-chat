@@ -29,13 +29,12 @@ const Chat = () => {
     if (loading) {
         return <Loader />
     }
-
     return (
 
         <Container>
             <Grid container
-                justify={"center"}
-                style={{ height: window.innerHeight - 50, marginTop: 20 }}>
+                justifyContent="center"
+                sx={{ height: window.innerHeight - 50, marginTop: 20 }}>
                 <Paper elevation={3} style={{ width: '80%', height: '60vh', border: '1px solid pink', overflowY: 'auto' }}>
                     {messages.map(message =>
                         <Paper elevation={3} key={message.createdAt} style={{
@@ -51,20 +50,19 @@ const Chat = () => {
 
                             </Grid>
                             <div>{message.text}</div>
-                            {/* <div>{message.createdAt}</div> */}
                         </Paper>
                     )}
                 </Paper>
                 <Grid
                     container
-                    direction={"column"}
-                    alignItems={"flex-end"}
+                    direction="column"
+                    alignItems="flex-end"
                     style={{ width: '80%' }}
                 >
                     <TextField
                         fullWidth
                         rowsmax={2}
-                        variant={"outlined"}
+                        variant="outlined"
                         value={value}
                         onChange={e => setValue(e.target.value)}
                     />
